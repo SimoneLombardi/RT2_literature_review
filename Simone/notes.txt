@@ -1,2 +1,119 @@
 [overleaf link] : https://it.overleaf.com/5816884623mxydrmnjrbkt#5e231f
 save notes here
+
+
+___________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________________
+The paper titled "Adaptive Team Cooperative Co-Evolution for a Multi-Rover Distribution Problem" by Nicolas Fontbonne, Nicolas Maudet, and Nicolas Bredeche, presents an approach to policy learning for a team of heterogeneous robotic agents. Here’s a summary of the main sections:
+Introduction
+
+The paper addresses the challenge of designing effective policies for a team of robots that must coordinate to complete tasks. When the team shares a single reward signal, it's difficult to determine each robot's contribution to the overall performance. The authors propose a method to dynamically adjust the number of agents updating their policies simultaneously, which is necessary for tasks requiring coordinated actions​
+
+​.
+Related Work
+
+The paper discusses previous research on multi-agent systems, credit assignment in teams, and learning in multi-robot systems. It highlights the difficulties of exact formulations in credit assignments and mentions practical implementations for approximating contributions of individual agents​
+
+​.
+Algorithm
+
+The proposed approach combines a cooperative co-evolutionary algorithm with a multi-armed bandit algorithm. This method adapts the number of agents updating their policies simultaneously to optimize both performance and learning speed. Two variants are discussed: one with fixed policy updates and one with adaptive updates​
+
+​.
+Experimental Setup
+
+The experiments involve a multi-rover task where agents must distribute themselves across points of interest. The setup includes details about the task environment, robot models, and policies used for the experiments​
+
+​.
+Results
+
+The results demonstrate that the algorithm can effectively determine the optimal group size for policy updates based on the task's coordination requirements. The experiments reveal that coordination can emerge at the phenotypical level, indicating subtle interactions between control parameters and behaviors​
+
+​.
+Conclusion
+
+The paper concludes that the adaptive cooperative co-evolutionary approach is successful in improving performance and learning speed in multi-agent robotic systems. It suggests that further exploration into phenotypical interactions could provide deeper insights into agent coordination mechanisms​
+___________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________________
+
+
+___________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________________
+Paper 2: Distributed Allocation and Scheduling of Tasks With Cross-Schedule Dependencies for Heterogeneous Multi-Robot Teams
+
+Authors: Barbara Arbanas Ferreira, Tamara Petrović, Matko Orsag, J. Ramiro Martínez-De Dios, Stjepan Bogdan
+Journal: IEEE Access, 2024
+DOI: 10.1109/ACCESS.2024.3404823
+
+Abstract:
+The paper introduces a distributed task allocation and scheduling algorithm for heterogeneous multi-robot systems, dealing with tasks that have tight temporal and precedence constraints. The algorithm is modeled as a variant of the vehicle routing problem and solved using a distributed metaheuristic approach based on evolutionary computation (CBM-pop). This method enables fast and near-optimal task allocation suitable for online applications. Simulation results show the proposed method's superior computational speed and scalability compared to existing methods, without compromising optimality. The practical application demonstrated involves maintaining a greenhouse with a multi-robot system.
+
+Key Contributions:
+
+    Distributed Task Allocation and Scheduling Algorithm: A new algorithm based on evolutionary computation to handle complex task dependencies in heterogeneous multi-robot systems.
+    Vehicle Routing Problem Variant: Framing the problem in the context of vehicle routing, allowing the use of efficient metaheuristic solutions.
+    Scalability and Speed: Demonstrated improved computational efficiency and scalability in simulations.
+
+Use Case:
+
+    Application: Maintenance of a greenhouse using a multi-robot system.
+    Results: Highlighted improved task allocation efficiency and scheduling, accommodating cross-schedule dependencies and varying robot capabilities​
+
+___________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________________
+
+
+
+___________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________________
+Summary of the Paper
+Title: Embodied, Intelligent Communication for Multi-Agent Cooperation
+
+Author: Esmaeil Seraj
+Affiliation: Georgia Institute of Technology
+Conference: Thirty-Seventh AAAI Conference on Artificial Intelligence (AAAI-23)
+
+Abstract:
+The paper presents computational methods inspired by human teaming behaviors to develop intelligent communication and coordination strategies for collaborative multi-robot systems. These methods integrate both classical model-based control and planning approaches with data-driven techniques like Multi-Agent Reinforcement Learning (MARL) to enable emergent cooperative behaviors in heterogeneous robot teams.
+Introduction
+
+The research addresses the challenge of efficiently coordinating multi-robot systems to optimize collaborative behavior. The key focus is on leveraging communication to build shared mental models among robots, similar to high-performing human teams, to improve team effectiveness. The study specifically tackles issues related to heterogeneous teaming, complex multi-faceted objectives, and dynamic environments​
+
+​.
+Major Problems Addressed
+
+    Heterogeneous Teaming: Coordination among robots with different capabilities requires modeling their interactions effectively.
+    Complex Multi-Faceted Objectives: Teams often face multiple, sometimes competing, objectives that need to be managed simultaneously.
+    Dynamic Environments: Environments that change regardless of the robots' actions add complexity to coordination and require adaptable strategies​
+
+    ​.
+
+Model-Based Multi-Agent Planning and Control
+
+    Low-Level Control Strategy: Designed for human-centered robot coordination, such as using UAVs to monitor wildfires.
+    Challenges: Issues like disconnected communication graphs were addressed using a model-reference multi-agent adaptive controller.
+    Hierarchical Coordination Framework: Developed for heterogeneous teams with perception and action agents to perform cooperative surveillance and tracking in dynamic environments​
+
+    ​.
+
+Learning End-to-End Multi-Agent Coordination Policies
+
+    Heterogeneous Policy Networks (HetNet): These networks learn diverse communication models for coordinating heterogeneous robot teams. They utilize graph attention networks and a binarized encoder-decoder channel to manage inter-class message heterogeneity.
+    InfoPG Framework: A cooperative MARL framework that leverages k-level reasoning from cognitive hierarchy theory to improve agents' decision-making based on teammates' actions. This framework showed state-of-the-art performance in learning emergent cooperative behaviors​
+
+    ​.
+
+Future Work
+
+The paper proposes future research directions focused on:
+
+    Learning from Demonstration (LfD): Developing methods for robot teams to learn coordination policies from human experts.
+    Human-Robot Collaboration: Investigating efficient collaboration dynamics between human and robot teams.
+    Applications: Exploring applications such as robot soccer teams or perception-action composite teams to enhance practical deployment​
+
+    ​.
+
+Conclusion
+
+The paper demonstrates significant advancements in enabling intelligent communication and coordination among heterogeneous multi-robot teams. By integrating model-based and data-driven methods, it sets a foundation for further exploration into human-inspired teaming strategies and multi-agent learning from demonstration, aiming to enhance the effectiveness and adaptability of robot teams in complex, dynamic environments.
+​
