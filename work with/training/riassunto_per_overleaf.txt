@@ -1,0 +1,55 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Hybrydnet is a new approach to task scheduling for human-robot teams
+The paper states it is better in every metric with respect to state of the art approach:
+
+	1) makespan	--> total time to complete all task (minimize)
+	2) feasibility	--> % of feasible schedule	     (maximize)  
+	3) time	--> run time statistic		     (minimize)
+	
+This algorithm was pitted agains EDF, Genetic Algorithm, HetGat scheduler.
+Also the strenght of this implementation is that it does not neet to query the environment multiple times(reducing the time needed to complete the schedule).
+
+HOW IT WORKS
+-- step one --
+	HetGAT layer (Heterogeneous Graph Encoder)
+	this elements is used to condense all the environment information for the scheduler to use, from temporal constraint, task information, agent capabilities.
+	Is used to avoid the necessity to periodically control the environment information in the scheduling part
+	
+-- step two --
+	Scheduling (Recurrent Schedule Propagator)
+	this element is used to create the schedule. It uses a LSTM(long short term memory) paradigm to save the state at every step of the scheduling process.
+	The scheduler select a couple of <task - agent> that it thinks is suitable, updates the internal state and propagate the effect of the choice.
+	
+(all of this works because math)
+
+PROS
+1) does not need to periodically query the environment for information -> is faster than the competitor
+2) is more ligth weigth than other implementation, in the scheduler part
+3) can deal with the stochastic nature of the human agent, without forcing a deterministic nature in it
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+HiTAB or Hierarchical Training of Agent Behaviour is a new approach at coordinating groups of heterogeneus robots.
+The objective of the paper is to create a functional robot group that is "trainable" rather than "coding" the behaviour, this approach is of course interesting for application were expert are scarse and
+cannot easly reach a customer to code a specific behaviour in the robot.
+
+problem:
+	1) the possible high dimensional space in wich the paper is moving. Setting aside numerosity of the agent, we have a robot that can have complex internal action and sensor and on top of that 
+	the communication needed to create the collaboration between the robot
+	2) the absence of an inverse function that given the goal is capable of makeing the robot accomplish said goal
+	
+solution:
+	manual goal decomposition, by haveing a user create a set of sub goal that lead to the final one the robot can be taugth the specific behaviour to accomplish the final goal
+	(reducing the size of the learning space)
+	// --> the initial behaviour library consisit in basic HARD coded beaviour, created by the manufacturer of the robot
+	
+	
+	The training with the HiTAB paradigm works as follows:
+	1) Training mode
+		In this phase the Agent(robot) performs the action as shown by the demostrator(human), the Agent create a "sample" that is stored as a FINITE STATE MACHINE state.
+		this sample are than passed to a classification algorithm before being saved
+	
+	2) Testing mode
+		When enough sample have been saved the demonstrator can trigger the Testing mode, in this state the robot create the TRANSITION between the STATE sample collected in the Training mode
+		And than the Agent performs the learned behaviour. If the demonstrator is not happy with the result the process can be repeated
+		
+
+	
