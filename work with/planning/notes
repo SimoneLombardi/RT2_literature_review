@@ -1,59 +1,27 @@
-The paper "Adaptive Heterogeneous Multi-Robot Collaboration from Formal Task Specifications" discusses a framework for coordinating a team of heterogeneous robots to achieve user-defined goals. The key points are as follows:
+Summary of "Adaptive Heterogeneous Multi-Robot Collaboration from Formal Task Specifications"
+This paper presents a framework for adaptive collaboration among heterogeneous robots using formal task specifications. The key points related to planning include:
 
-Framework Overview:
+Formal Methods for Task Specification: Utilizes formal languages to specify tasks, which ensures that the task requirements are clear, unambiguous, and verifiable.
+Adaptive Planning: Emphasizes adaptive planning where robots can dynamically reallocate tasks based on changing environments or robot capabilities. This involves continuous monitoring and adjustment of plans.
+Hierarchical Planning: Implements a hierarchical planning approach where high-level tasks are broken down into sub-tasks, which are then allocated to different robots based on their capabilities.
+Temporal and Spatial Constraints: Considers both temporal and spatial constraints in planning, ensuring that tasks are completed within specific time frames and locations.
+Robustness and Flexibility: Focuses on creating plans that are robust to failures and flexible enough to adapt to new conditions without complete re-planning.
+Summary of "Task Allocation Strategy for Heterogeneous Robot Teams in Offshore Missions"
+This paper proposes a task allocation strategy specifically for offshore missions involving heterogeneous robot teams. The main points related to planning include:
 
-The framework integrates various robotic capabilities into a unified task allocation and planning system.
-It allows non-expert users to specify expressive, temporally-extended goals.
-The system is designed to handle non-deterministic outcomes and react to online observations.
-Problem Statement:
+Multi-Role Goal Assignment (MRGA): Introduces the MRGA strategy for efficient task allocation, considering robot capabilities, spatial distribution of goals, and task implementation time.
+Temporal Planning: Integrates MRGA with AI temporal planners, which helps in reducing the search space and planning time, and ensures tasks are completed within designated time windows.
+Optimization Criteria: Focuses on optimizing goal distribution based on a combination of parameters such as the distance between points of interest, sensor redundancy, and makespan (the total time to complete all tasks).
+Scenario-Specific Constraints: Addresses specific challenges of offshore environments, such as harsh weather conditions and the need for high autonomy, by tailoring the planning process to consider these factors.
+Experimental Validation: Demonstrates the effectiveness of the approach through experiments involving ground and aerial robots performing tasks on a simulated offshore platform, showing improved plan quality and robustness.
+Integration into Your Paper
+In your section on Temporal Symbolic Planning, you can highlight these key aspects from both papers:
 
-Coordination of heterogeneous robots, including mobile platforms and manipulators from different manufacturers, poses significant challenges.
-There is a need for abstraction layers to facilitate communication and collaboration between robots.
-The system must be user-friendly to allow non-experts to specify robot behaviors.
-Skill Formulation:
-
-Skills are abstract representations of robot capabilities, such as perception, navigation, and manipulation.
-These skills must be general enough to describe various types of robotic actions but specific enough to enable task planning and feedback for task adaptation.
-Task Specification:
-
-The framework includes templates for common industrial tasks, which can be parametrized by users.
-This enables automatic synthesis of reactive multi-agent policies.
-Cooperative Task Execution:
-
-Tasks are dynamically allocated among robots based on their capabilities and the specified goals.
-The system includes a repetitive skill selection and execution loop to adapt to changing task requirements.
-Experiments and Case Studies:
-
-The framework was evaluated through experiments inspired by real-world industrial scenarios.
-These experiments demonstrated the system's ability to automatically compose and adapt multi-robot behaviors.
-Results and Learnings:
-
-The framework showed potential in reducing the engineering effort required to implement multi-robot systems.
-Future work will focus on improving scalability and addressing new research questions.
-The framework aims to make industrial automation with heterogeneous robots more efficient and accessible by abstracting complex coordination tasks and allowing for dynamic adaptation to changing environments .
-
-
-
-
-
-The paper titled "Task Allocation Strategy for Heterogeneous Robot Teams in Offshore Missions" presents a novel approach called Multi-Role Goal Assignment (MRGA) for improving task allocation in robot teams operating in offshore environments. Here's a summary of the key points:
-
-Background and Problem Statement
-Context: Offshore oil and gas platforms are challenging environments for human operators due to harsh conditions. Autonomous robots can improve safety and reduce costs.
-Challenge: Current multi-robot planning approaches often result in poor plan quality and high computational demands due to the high-dimensional state space.
-Proposed Solution
-MRGA: The Multi-Role Goal Assignment strategy improves plan efficiency and quality by optimizing goal distribution among robots based on their capabilities, sensor redundancy, spatial goal distribution, and task implementation time.
-Temporal Planners: The strategy integrates with AI temporal planners to reduce the search space and planning time.
-Methodology
-Task Allocation: MRGA allocates tasks considering robot capabilities and minimizes a cost function combining makespan, distance between points of interest (POIs), and sensor redundancy.
-Robot Capabilities: Robots have different sensory and motion capabilities, which are matched with task requirements.
-Experiments and Results
-Simulation: The approach was tested with a fleet of ground (Husky) and aerial (Quadcopter) robots on an offshore platform simulator.
-Performance: Results showed that MRGA improves plan quality and robustness while significantly reducing planning time compared to existing methods.
-Conclusion
-The MRGA strategy enhances the efficiency and effectiveness of task allocation in heterogeneous robot teams for offshore missions, making it a promising approach for autonomous operations in complex, constrained environments.
-
-
+Task Specification and Decomposition: Discuss how formal methods are used to specify and decompose tasks into manageable sub-tasks, ensuring clarity and verifiability.
+Adaptive and Hierarchical Planning: Explain the importance of adaptive and hierarchical planning for dynamically adjusting to environmental changes and robot capabilities.
+Temporal Constraints and Optimization: Describe how temporal planners integrate with task allocation strategies to optimize for various criteria, such as makespan and spatial distribution, ensuring efficient and timely completion of tasks.
+Scenario-Specific Considerations: Address the importance of tailoring planning strategies to specific scenarios, like offshore missions, to account for unique challenges and constraints.
+Robustness and Flexibility: Emphasize the need for plans to be robust and flexible, capable of handling failures and adapting to new conditions without requiring complete re-planning.
 
 
 
