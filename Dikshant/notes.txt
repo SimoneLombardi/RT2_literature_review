@@ -1,2 +1,91 @@
 [overleaf link] : https://it.overleaf.com/5816884623mxydrmnjrbkt#5e231f
 save notes here
+
+
+Abstract - Many computer applications can get better with the help of advanced and varied abilities of modern robots. We can get even better results by using different robots together, some of which might already be in use.
+ But current programming systems make it hard to use these resources easily. This is because the person creating the application has to manually handle the mix and temporary availability of resources and services, which can be a tough and clumsy job. TeCoLa is a programming system that tries to solve this problem.
+In the paper published by Manos Koutsoubelias and Spyros Lalis at University of Thessaly & CERTH Volos, Greece they developed the programming (Python) framework named as TeCola which supports the creation and management of teams based on the dynamic service capability and availability of individual robots. One of the special thing they emphasised in this article that teams are maintained behind the scenes, without any effort from the application programmer. 
+
+In this paper they consider the robot as a node with hardware and software resources, and they (node) provide information to each other as a service on their available resources.  Services can combine multiple resources e.g., camera + image processing for object detection. 
+
+How it works? 
+First of all lets introduce with the terminologies. 
+Services:
+1.	Services are independent software components (singleton classes) derived from a Service metaclass. 
+2.	They provide functions and properties that can be used through proxies. 
+3.	They can be created by developers or pre-installed on robots.  To give an example, Listing 1 provides a skeleton for a brightness service:
+ 
+
+Nodes:
+1.	Nodes (robots) provide services and are managed by a single Node class instance. 
+2.	Each node has a type and name for identification. 
+3.	Services can be added or removed dynamically, which activates or deactivates them.
+
+ 
+
+Co – Ordinator:
+
+Mission control is managed by singleton Coordinator class. The coordinator can inspect nodes, form teams, and control nodes or teams. 
+Mission group is a collection of nodes (robots) working together for a particular purpose. The mission group is accessible through the group object. This is part of the coordinator object and contains the proxies for all nodes that currently participate in the mission group. 
+
+Listing 3 gives an example where the application prints the type and name of nodes that are added to or removed from the mission group.
+ 
+
+Coordinator has few responsibilities – 1. Manages mission group formation, deciding necessary node types/services.
+2. Keeps an updated view of the mission group with proxies for each node.
+3. Controls nodes by invoking methods or accessing properties of proxies.
+4. Can wait on conditions based on services and service properties (e.g., Instructing a team to move to a position and waiting until all members reach it.).
+The application can block until a given node provides a ser vice or a given service property reaches a specific value this is done via the waitOn() method of the Coordinator object.
+
+Team Formation and control - 
+Teams in the Coordinator framework is created by choosing nodes that have specific qualities or services needed for a task. These nodes are grouped together automatically based on rules set by the coordinator. As nodes meet or stop meeting these rules, they can join or leave the team, making the team flexible and able to change as needed during missions.
+Below photo shows, how to create a team in the TeCola:
+ 
+Services that are common among the members of the team are promoted to the team level and service promotion allows the programmer to control an entire team in a straightforward way
+
+Node Level Control 
+
+ 
+Above photo shows how to use the mobility service in order to instruct a node to move to a certain position, wait until it reaches that position (within a certain distance tolerance), and then take a picture via the photo service.  
+ 
+Above photo shows how to move the photo team, which was created above, at a certain location, print the positions of individual members, and take a team-level picture. 
+The TeCoLa environment and its functional testing:
+TeCoLa can be used in two different system configurations. In the so-called “master-slave” configuration a distinguished node only features the coordinator environment, and all other nodes feature the node environment, whereas in the “peer-to-peer” configuration the node with the coordinator environment also features the node environment (provides some services on its own).  In both cases, if the node with the coordinator environment fails, other nodes enter a “fail-safe” state.
+They performed the TeCola in a simulation that includes multiple communication virtual drones.  This setup indicates that communication and coordination between virtual drones were tested, similar to how it occurs with real drones, but all of this was conducted within a controlled virtual environment.
+They also designed to simulate how drones with different capabilities could be coordinated for forest fire detection and response.
+There have been new ways proposed to make it easier to program applications for mobile robots. In this paper they mentioned some of them and compare them with TeCola. 
+
+1.	ROS (Robot Operating System):
+a.	Lacks: Easy management of multiple robots working together.
+b.	TeCoLa: Makes it easier to coordinate teams of robots for complex tasks.
+2.	MOSS (Mission Oriented Operating Suite):
+a.	Lacks: Direct support for coordinating actions between robots.
+b.	TeCoLa: Helps in better managing how robots work together in real-time.
+3.	URBI:
+a.	Lacks: Ability to handle changes in robot teams and their tasks dynamically.
+b.	Lacks: Ability to handle changes in robot teams and their tasks dynamically.
+4.	Other service-oriented frameworks:
+a.	Lacks: Flexible ways to organize and adjust robot teams during missions.
+b.	TeCoLa: Offers tools to organize teams and adapt them to different tasks on the fly.
+5.	Micro:
+a.	Lacks: Support for adding or removing robots from tasks while they're working.
+b.	TeCoLa: Allows for changes in robot teams and their roles while they're actively performing task
+6.	Karma:
+a.	Lacks: Detailed control over how robots coordinate their actions together.
+b.	TeCoLa: Provides precise control over how robots work together in teams based on specific needs.
+7.	Meld:
+a.	Lacks: Ability to steer robots individually for specific tasks.
+b.	TeCoLa: Enables direct control over each robot's actions within a coordinated team setting
+8.	Proto:
+a.	Lacks: Clear methods for managing services and coordinating actions across robots.
+b.	TeCoLa: Organizes services and tasks efficiently across different types of robots.
+9.	Voltron:
+a.	Lacks: Customizable scheduling and detailed planning for how robot teams operate.
+b.	TeCoLa: Customizes how teams of robots work together and adapt their actions as needed.
+10.	Buzz:
+a.	Lacks: Centralized coordination to ensure all robots work together seamlessly.
+b.	TeCoLa: Centralizes coordination to maintain consistent teamwork and adapt to changes in real-time.
+
+
+
+
