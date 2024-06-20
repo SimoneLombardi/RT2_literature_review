@@ -10,3 +10,9 @@
 
 --- NEXT Meeting --- monday 10 (maybe)
 Start appling the exclusion criteria
+
+- Evaluation - 
+1. Time
+2. Complexity 
+3. Platform availability 
+4. Flexibility
